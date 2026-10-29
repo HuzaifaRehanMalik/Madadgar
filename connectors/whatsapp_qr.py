@@ -36,6 +36,15 @@ class WhatsAppQR(Channel):
         # connect() blocks and prints the QR in the terminal on first run
         threading.Thread(target=self.client.connect, daemon=True).start()
 
+    def owner_id(self, phone: str) -> str:
+        return super().owner_id(phone) + "@s.whatsapp.net"
+
+    def stop(self) -> None:
+        try:
+            self.client.stop()  # ends the blocking connect() thread
+        except Exception:
+            pass
+
     async def send(self, user_id: str, text: str) -> None:
         user, server = user_id.split("@", 1)
         await asyncio.to_thread(self.client.send_message, build_jid(user, server), text)

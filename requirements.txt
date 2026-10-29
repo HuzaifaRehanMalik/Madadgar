@@ -21,6 +21,8 @@ attrs==26.1.0
     # via
     #   jsonschema
     #   referencing
+beautifulsoup4==4.15.0
+    # via linkpreview
 certifi==2026.10.23
     # via
     #   httpcore
@@ -32,9 +34,13 @@ charset-normalizer==3.5.2
     # via requests
 click==8.5.0
     # via uvicorn
+colorama==0.4.6 ; sys_platform == 'win32'
+    # via tqdm
 cryptography==50.0.2
     # via pyjwt
 fastapi==0.162.0
+    # via madadgar
+greenlet==3.5.6
     # via madadgar
 griffelib==2.4.1
     # via openai-agents
@@ -50,7 +56,9 @@ httpcore2==2.16.0 ; sys_platform != 'emscripten'
 httptools==0.9.0
     # via uvicorn
 httpx==0.28.1
-    # via madadgar
+    # via
+    #   madadgar
+    #   neonize
 httpx2==2.16.0
     # via
     #   mcp
@@ -70,6 +78,8 @@ jsonschema==4.26.0
     # via mcp
 jsonschema-specifications==2025.9.1
     # via jsonschema
+linkpreview==0.13.2
+    # via neonize
 mako==1.4.3
     # via alembic
 markupsafe==3.0.4
@@ -78,6 +88,8 @@ mcp==2.3.0
     # via openai-agents
 mcp-types==2.3.0
     # via mcp
+neonize==0.5.2
+    # via madadgar
 openai==3.39.0
     # via openai-agents
 openai-agents==0.24.0
@@ -86,6 +98,12 @@ opentelemetry-api==1.45.1
     # via
     #   fastapi
     #   mcp
+phonenumbers==9.0.42
+    # via neonize
+pillow==13.0.0
+    # via neonize
+protobuf==7.36.2
+    # via neonize
 pycparser==3.12 ; implementation_name != 'PyPy' and platform_python_implementation != 'PyPy'
     # via cffi
 pydantic==2.14.1
@@ -108,6 +126,10 @@ python-dotenv==1.2.4
     # via
     #   pydantic-settings
     #   uvicorn
+python-magic==0.4.27 ; sys_platform != 'win32'
+    # via neonize
+python-magic-bin==0.4.14 ; sys_platform == 'win32'
+    # via neonize
 python-multipart==0.0.32
     # via
     #   mcp
@@ -121,13 +143,20 @@ referencing==0.37.0
     #   jsonschema
     #   jsonschema-specifications
 requests==2.34.2
-    # via openai-agents
+    # via
+    #   linkpreview
+    #   neonize
+    #   openai-agents
 rpds-py==2026.9.1
     # via
     #   jsonschema
     #   referencing
+segno==1.6.6
+    # via neonize
 sniffio==1.3.1
     # via openai
+soupsieve==3.0.4
+    # via beautifulsoup4
 sqlalchemy==2.1.6
     # via
     #   alembic
@@ -140,6 +169,8 @@ starlette==1.10.0
     #   mcp
     #   openai-agents
     #   sse-starlette
+tqdm==4.70.1
+    # via neonize
 truststore==0.10.5 ; sys_platform != 'emscripten'
     # via
     #   httpcore2
@@ -148,6 +179,7 @@ typing-extensions==4.16.0
     # via
     #   alembic
     #   anyio
+    #   beautifulsoup4
     #   fastapi
     #   httpx2
     #   mcp

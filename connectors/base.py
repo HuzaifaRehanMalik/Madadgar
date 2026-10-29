@@ -15,3 +15,7 @@ class Channel(ABC):
 
     @abstractmethod
     async def send(self, user_id: str, text: str) -> None: ...
+
+    def owner_id(self, phone: str) -> str:
+        """Turns a plain phone number into the id send() expects."""
+        return phone.lstrip("+").replace(" ", "")
